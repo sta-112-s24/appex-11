@@ -1,0 +1,47 @@
+---
+title: "Appex 13"
+format: html
+editor: visual
+---
+
+```{r}
+#| label: load-packages
+#| message: false
+#| warning: false
+library(tidyverse)
+library(Stat2Data)
+```
+
+```{r}
+#| label: load-data
+#| message: false
+
+ucbadmit <- read_csv("data/ucbadmit.csv")
+data("NFL2007Standings")
+
+```
+
+Calculate the proportion of each gender that is admitted and rejected to UCB:
+
+```{r}
+ucbadmit %>%
+  count(gender, admit) %>%
+  group_by(gender) %>%
+  mutate(prop = n / sum(n))
+```
+
+```{r}
+#| label: fig-admission-by-gender
+ggplot(ucbadmit, mapping = aes(x = ---, fill = ---)) +
+  geom_bar(position = "fill") + 
+  labs(y = "", title = "Admission by gender")
+```
+
+Calculate the proportion of each gender that is admitted and rejected to UCB by department:
+
+```{r}
+ucbadmit %>%
+  count(---, ---, ---) %>%
+  group_by(---, gender) %>%
+  mutate(prop = n / sum(n))
+```
