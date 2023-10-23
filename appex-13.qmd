@@ -24,9 +24,9 @@ data("NFL2007Standings")
 Calculate the proportion of each gender that is admitted and rejected to UCB:
 
 ```{r}
-ucbadmit %>%
-  count(gender, admit) %>%
-  group_by(gender) %>%
+ucbadmit |>
+  count(gender, admit) |>
+  group_by(gender)|>
   mutate(prop = n / sum(n))
 ```
 
@@ -40,8 +40,8 @@ ggplot(ucbadmit, mapping = aes(x = ---, fill = ---)) +
 Calculate the proportion of each gender that is admitted and rejected to UCB by department:
 
 ```{r}
-ucbadmit %>%
-  count(---, ---, ---) %>%
-  group_by(---, gender) %>%
+ucbadmit |>
+  count(---, ---, ---) |>
+  group_by(---, gender) |>
   mutate(prop = n / sum(n))
 ```
